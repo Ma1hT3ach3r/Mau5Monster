@@ -1,15 +1,12 @@
-# Mau5Monster
-This is where my code for the Carl robot-mouse hunter will be. 
-
 // CARL CODE - SRF04 based
 //#include <NewPing.h>
 /////////////////////////////////////////////////////////////////////////////////
 // Pin defines
 /////////////////////////////////////////////////////////////////////////////////
-#define MPIN1B 5 // motor 1 pin B
-#define MPIN1A 6 // motor 1 pin A
-#define MPIN2A 9 // motor 2 pin A
-#define MPIN2B 10 // motor 2 pin B
+#define MPIN1B 6 // motor 1 pin B
+#define MPIN1A 5 // motor 1 pin A
+#define MPIN2A 10 // motor 2 pin A
+#define MPIN2B 9 // motor 2 pin B
 #define buzzerPin 12
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -81,7 +78,7 @@ Move(0, 0);
 /////////////////////////////////////////////////////////////////////////////////
 // TurnRight Function
 /////////////////////////////////////////////////////////////////////////////////
-void TurnRight(int delayms) {
+void TurnLeft(int delayms) {
 RGBled(1, 1, 0); //YELLOW
 Move(-75, 75);
 delay(delayms);
@@ -90,7 +87,7 @@ Move(0, 0);
 /////////////////////////////////////////////////////////////////////////////////
 // TurnLeft Function
 /////////////////////////////////////////////////////////////////////////////////
-void TurnLeft(int delayms) {
+void TurnRight(int delayms) {
 RGBled(0, 1, 1); //CYAN
 Move(75, -75);
 delay(delayms);
@@ -132,9 +129,15 @@ buzzer(50);
 // main loop - runs infinetly
 /////////////////////////////////////////////////////////////////////////////////
 void loop() {
+
+
 Forward(500);
 Stop(150);
-Reverse(250);
+Move(-75,0);delay(500); // fwd to the right 90deg
+Forward(500);}
+
+
+/*Reverse(250);
 Stop(150);
 Reverse(250);
 Stop(250);
